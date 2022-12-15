@@ -22,8 +22,12 @@ konsol = taban.konsol
 
 
 
-ytLiveChatURL = input(Fore.GREEN + "Lütfen Canlı Yayın Linkinizi Giriniz >>>>>> ")
-keyword = input(Fore.GREEN + "Lütfen Çekiliş İçin Seçtiğiniz Kelimeyi Giriniz >>>>>>>>>> ")
+ytLiveChatURL = input(
+    f"{Fore.GREEN}Lütfen Canlı Yayın Linkinizi Giriniz >>>>>> "
+)
+keyword = input(
+    f"{Fore.GREEN}Lütfen Çekiliş İçin Seçtiğiniz Kelimeyi Giriniz >>>>>>>>>> "
+)
 eligibleUsers = set()
 
 # start web browser
@@ -62,22 +66,22 @@ def startDrawing(eligibleUsersList):
     time.sleep(3)
     for i in range(1, 5):
         noktalar = i * "."
-        print(Fore.CYAN + "Rastgele Bir Sayı Çekiliyor" + noktalar)
+        print(f"{Fore.CYAN}Rastgele Bir Sayı Çekiliyor{noktalar}")
         time.sleep(1.5)
 
-    print(Fore.CYAN + "Hazır Mısınız?")
+    print(f"{Fore.CYAN}Hazır Mısınız?")
     time.sleep(1.5)
-    print(Fore.CYAN + "Son kontrolleri yapıyorum..")
+    print(f"{Fore.CYAN}Son kontrolleri yapıyorum..")
     time.sleep(1.5)
-    print(Fore.CYAN + "Bugun nasılsın?")
+    print(f"{Fore.CYAN}Bugun nasılsın?")
     time.sleep(1.5)
-    print(Fore.CYAN + "Son son kontrolleri yapıyorum..")
+    print(f"{Fore.CYAN}Son son kontrolleri yapıyorum..")
     print(Fore.CYAN + "{totalUserCount} kişi arasından kazanan:".format(
         totalUserCount=len(eligibleUsersList)), random.choice(eligibleUsersList))
 
 
 def main():
-    for i in range(0, 7):
+    for _ in range(7):
         html_source = getHTML(ytLiveChatURL)
         soup = parseHTML(html_source)
         messages = getMessages(soup)
